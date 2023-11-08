@@ -130,3 +130,4 @@ dist
 .pnp.*
 
 fs-jsonified.json
+fs-jsonify.json

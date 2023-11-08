@@ -96,12 +96,13 @@ const readFilesAndGenerateJson = async (pattern: string) => {
   const filteredFiles = files.filter((file) => gitTrackedFiles.includes(file))
   const jsonStructure = createJsonStructure(filteredFiles, rootPath)
 
+  const fileName = path.basename(process.cwd())
   fs.writeFileSync(
-    path.join(rootPath, 'fs-jsonified.json'),
+    path.join(rootPath, `${fileName}.json`),
     JSON.stringify(jsonStructure, null, 2)
   )
 
-  console.log('fs-jsonified.json generated successfully!')
+  console.log(`${fileName}.json generated successfully!`)
 }
 
 readFilesAndGenerateJson(process.argv[2])
